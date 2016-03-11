@@ -108,7 +108,7 @@ int first(int x,int y,int z){
 int second(int x,int y){
   result();
   timeoutDelay=1.1*x*y;
-  printf("\n\tTime Out Delay (secs): %f",timeoutDelay);
+  printf("\n\tTimeout Delay (secs): %f",timeoutDelay);
   getEnter();
   return 0;
 }
