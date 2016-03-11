@@ -5,7 +5,7 @@
 #define clear() printf("\033[H\033[J")
 #define gotoxy(x,y) printf("\033[%d;%dH", (x), (y))
 
-void getEnter(void); /* second void? */
+void getEnter(void);
 int first(int, int, int);
 int second(int, int);
 void get1(int *, int *, int *);
