@@ -22,7 +22,7 @@ float frequency;
 float timeoutDelay;
 
 // Main function
-int main (int argc, char** argv){
+int main (void){
   int value1, value2, value3, operation;
   clear();
   while(1) {
