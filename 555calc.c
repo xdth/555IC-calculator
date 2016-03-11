@@ -1,22 +1,27 @@
 
+// Includes
 #include <stdio.h>
 #include <unistd.h>
 
+// Definitions
 #define clear() printf("\033[H\033[J")
 #define gotoxy(x,y) printf("\033[%d;%dH", (x), (y))
 
+// Function prototypes
 void getEnter(void);
 int first(int, int, int);
 int second(int, int);
 void get1(int *, int *, int *);
 void get2(int *, int *);
 
+// Variables declaration
 float timeHigh;
 float timeLow;
 float duty_cycle_percentage;
 float frequency;
 float timeoutDelay;
 
+// Main function
 int main (int argc, char** argv){
   int value1, value2, value3, operation;
   clear();
@@ -42,15 +47,19 @@ int main (int argc, char** argv){
         printf("Error: Unrecognized command, try again.");
         getEnter();
         break;
-    }
+    }  
+
   }
 }
 
+// Functions
+
 void getEnter(void) {
   int ch;
-  while ((ch = getchar()) != '\n' && ch != EOF);
+  while ( (ch = getchar()) != '\n' && ch != EOF);
+  // use gotoxy?
   printf("\n\n\n\n\n\n\tPress ENTER to go back to the menu.");
-  while (ch = getchar()) != '\n' && ch != EOF);
+  while ( (ch = getchar()) != '\n' && ch != EOF);
  clear();
 }
 
@@ -58,6 +67,7 @@ void result(void) {
   printf("\n\n\tResult:\n\t");
 }
 
+// Get the memory address of value1, value2 and value3, storing the user input therein
 void get1(int *value1_ptr, int *value2_ptr, int *value3_ptr) {
   printf("\tValue of the 1st resistor (R1) in Ohms: ");
   scanf("%d", value1_ptr);
@@ -74,6 +84,15 @@ void get2(int *value1_ptr, int *value2_ptr) {
   scanf("%d", value2_ptr);
 }
 
+
+
+// First
+  /*
+  Time High (secs) = 0.693 * (R1 + R2) * C1
+  Time Low (secs) = 0.693 * R2 * C1
+  Duty Cycle Percentage = (Th / (Th + Tl)) * 100 
+  Frequency = 1.44 / ((R1 + R2 + R2) * C1)
+  */
 int first(int x,int y,int z){
   result();
   timeHigh=0.693*(x+y)*z;
@@ -88,6 +107,8 @@ int first(int x,int y,int z){
   return 0;
 }
 
+// Second
+  // Time Out Delay (secs) = 1.1 * R1 * C1 
 int second(int x,int y){
   result();
   timeoutDelay=1.1*x*y;
