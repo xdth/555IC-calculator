@@ -22,7 +22,7 @@ float frequency;
 float timeoutDelay;
 
 // Main function
-int main (void){
+int main (void) {
   int value1, value2, value3, operation;
   clear();
   while(1) {
@@ -47,19 +47,17 @@ int main (void){
         printf("Error: Unrecognized command, try again.");
         getEnter();
         break;
-    }  
-
+    }
   }
 }
 
 // Functions
-
 void getEnter(void) {
   int ch;
-  while ( (ch = getchar()) != '\n' && ch != EOF);
+  while ((ch = getchar()) != '\n' && ch != EOF);
   // use gotoxy?
   printf("\n\n\n\n\n\n\tPress ENTER to go back to the menu.");
-  while ( (ch = getchar()) != '\n' && ch != EOF);
+  while ((ch = getchar()) != '\n' && ch != EOF);
  clear();
 }
 
@@ -83,8 +81,6 @@ void get2(int *value1_ptr, int *value2_ptr) {
   printf("\tValue of the capacitor (C1) in Farads: ");
   scanf("%d", value2_ptr);
 }
-
-
 
 // First
   /*
